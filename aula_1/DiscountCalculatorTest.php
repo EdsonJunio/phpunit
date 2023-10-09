@@ -7,7 +7,7 @@ class DiscountCalculatorTest
 {
 
 
-    public function shoulApply_WhenValueIsAboveTheMinimun()
+    public function shoulApply_WhenValueIsAboveTheMinimunTest()
     {
 
         $discountCalculator = new DiscountCalculator();
@@ -16,6 +16,19 @@ class DiscountCalculatorTest
         $totalWithDicount = $discountCalculator->apply($totalValue);
 
         $expectrdValue = 110;
+        $this->assertEquals($expectrdValue, $totalWithDicount);
+
+    }
+
+    public function shoulNotApply_WhenValueIsBellowTheMinimunTest()
+    {
+
+        $discountCalculator = new DiscountCalculator();
+
+        $totalValue = 90;
+        $totalWithDicount = $discountCalculator->apply($totalValue);
+
+        $expectrdValue = 90;
         $this->assertEquals($expectrdValue, $totalWithDicount);
 
     }
